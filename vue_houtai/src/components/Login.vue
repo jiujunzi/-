@@ -70,7 +70,11 @@ export default {
         if (res.meta.status !==200 ) return this.$message.error(res.meta.msg)
         this.$message.success(res.meta.msg)
 
-        
+        // 保存token
+        window.sessionStorage.setItem('token',res.data.token)
+
+        // 编程式导航跳转到后台home
+        this.$router.push('/home')
       });
     }
   }
